@@ -1,8 +1,0 @@
-386e4a,127.0.0.1,GET,https://127.0.0.1:8000/test,1678267615,,200
-62c8e7,127.0.0.1,GET,https://127.0.0.1:8000/test,1678267650,,200
-96d59a,127.0.0.1,GET,https://127.0.0.1:8000/test,1678267676,,200
-284f8c,127.0.0.1,GET,https://127.0.0.1:8000/test,1678268202,,200
-bd6b28,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_da-03e5c3.js,1678268202,558a08,404
-d3f3df,127.0.0.1,GET,https://127.0.0.1:8000/build/runtime.js,1678268202,e90670,404
-558a08,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_da-03e5c3.js,1678268202,,404
-e90670,127.0.0.1,GET,https://127.0.0.1:8000/build/runtime.js,1678268202,,404

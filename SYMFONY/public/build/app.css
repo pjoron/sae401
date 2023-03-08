@@ -1,0 +1,15 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[1]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[4].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[3]!./assets/styles/app.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+h1 {
+  font-size: 2rem;
+  color: red;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmNzcyIsIm1hcHBpbmdzIjoiOzs7QUFFQTtFQUNJO0VBQ0E7QUNESjs7QUFBQTtFQUNJO0VBQ0E7RUFDQTtBQUdKLEMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hc3NldHMvc3R5bGVzL3Njc3Mvc3R5bGUuc2NzcyIsIndlYnBhY2s6Ly8vLi9hc3NldHMvc3R5bGVzL2FwcC5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIlxuXG5oMSB7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICAgIGNvbG9yOiByZWQ7XG5cbiAgfVxuIiwiQGltcG9ydCAnc2Nzcy9zdHlsZS5zY3NzJztcblxuXG4qIHtcbiAgICBwYWRkaW5nOiAwO1xuICAgIG1hcmdpbjogMDtcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICB9XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/
