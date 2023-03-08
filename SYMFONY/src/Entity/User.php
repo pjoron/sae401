@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -16,17 +18,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
-    private ?string $pseudo_user = null;
+    private ?string $email = null;
 
     #[ORM\Column]
     private array $roles = [];
 
 
-    #[ORM\Column(length: 20)]
-    private ?string $nb_victoires_user = null;
+    #[ORM\Column]
+    private ?int $nb_victoires_user = 0;
 
-    #[ORM\Column(length: 20)]
-    private ?string $nb_defaites_user = null;
+    #[ORM\Column]
+    private ?int $nb_defaites_user = 0;
 
     #[ORM\Column(length: 30)]
     private ?string $date_crea_compte_user = null;
@@ -42,14 +44,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    public function getNbVictoiresUser(): ?string
+    #[ORM\Column(type: 'boolean')]
+    private $isVerified = false;
+
+    public function getNbVictoiresUser(): ?int
     {
         return $this->nb_victoires_user;
     }
+    public function setNbVictoiresUser(int $nb_victoires_user): self
+    {
+        $this->nb_victoires_user = $nb_victoires_user;
 
-    public function getNbDefaitesUser(): ?string
+        return $this;
+    }
+
+    public function getNbDefaitesUser(): ?int
     {
         return $this->nb_defaites_user;
+    }
+
+    public function setNbDefaitesUser(int $nb_defaites_user): self
+    {
+        $this->nb_defaites_user = $nb_defaites_user;
+
+        return $this;
     }
 
     public function getDateCreaCompteUser(): ?string
@@ -57,9 +75,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->date_crea_compte_user;
     }
 
+    public function setDateCreaCompteUser(string $date_crea_compte_user): self
+    {
+        $this->date_crea_compte_user = $date_crea_compte_user;
+
+        return $this;
+    }
+
     public function getDateNaissanceUser(): ?string
     {
         return $this->date_naissance_user;
+    }
+
+    public function setDateNaissanceUser(string $date_naissance_user): self
+    {
+        $this->date_naissance_user = $date_naissance_user;
+
+        return $this;
     }
 
     public function getNbPartiesUser(): ?string
@@ -67,19 +99,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->nb_parties_user;
     }
 
+    public function setNbPartiesUser(string $nb_parties_user): self
+    {
+        $this->nb_parties_user = $nb_parties_user;
+
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPseudoUser(): ?string
+    public function getEmail(): ?string
     {
-        return $this->pseudo_user;
+        return $this->email;
     }
 
-    public function setPseudoUser(string $pseudo_user): self
+    public function setEmail(string $email): self
     {
-        $this->pseudo_user = $pseudo_user;
+        $this->email = $email;
 
         return $this;
     }
@@ -91,7 +130,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->pseudo_user;
+        return (string) $this->email;
     }
 
     /**
@@ -135,5 +174,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
     }
 }

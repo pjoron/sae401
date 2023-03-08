@@ -1,0 +1,11 @@
+<footer>
+    <div id="content">
+        <section>
+            <ul>
+                <li><a href="{{ path('app_home') }}" class="{{ app.request.get('_route') == 'app_home' ? 'link-active' }}">Mon compte</a></li>
+                <li><a href="{{ path('app_contact') }}" class="{{ app.request.get('_route') == 'app_contact' ? 'link-active' }}">Contact & Informations</a></li>
+                <li><a href="{{ path('app_cgu') }}" class="{{ app.request.get('_route') == 'app_cgu' ? 'link-active' }}">CGU</a></li>
+            </ul>
+        </section>
+    </div>
+</footer>
