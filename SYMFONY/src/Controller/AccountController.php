@@ -17,6 +17,18 @@ class AccountController extends AbstractController
         return $this->render('account/index.html.twig');
     }
 
+    #[Route('/account', name: 'app_account')]
+    public function index(UserRepository $userRepository): Response
+    {
+        $user = $this->getUser();
+        if(!$user) {
+            return $this->redirectToRoute('app_login');
+        } else {
+            return $this->render('account/index.html.twig', [
+                'user' => $user
+            ]);
+        }
+    }
 
 
 

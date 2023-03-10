@@ -47,7 +47,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    public function getNbVictoiresUser(): ?int
+    public function getnb_victoires_user(): ?int
     {
         return $this->nb_victoires_user;
     }
@@ -110,6 +110,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->id;
     }
+
 
     public function getEmail(): ?string
     {
