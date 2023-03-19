@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello AccountController!{% endblock %}
-
+{% block javascripts %}
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -10,11 +12,55 @@
 
 <div class="example-wrapper">
     <h1>ACCOUNT</h1>
-
+                        <canvas id="rate"> </canvas >
                         <tr>
-                            <td >{{ user.id }}</td>
+                            <td>{{ user.id }}</td>
                             <td>{{ user.nb_victoires_user }}</td>
+							<td>{{ user.nb_defaites_user }}</td>
                         </tr>
 
 
+
+
+<script>
+
+
+    var donneesUser = {
+        'victoires': {{ user.nb_victoires_user }},
+        'defaites': {{ user.nb_defaites_user }}
+    };
+
+
+var options = {
+	tooltips: {
+		enabled: true,
+	},
+	responsive: true,
+	plugins: {
+		title: {
+			text: "Taux de victoires",
+			display: true,
+		},
+	},
+};
+
+
+    const rate = new Chart(document.getElementById("rate"), {
+	type: "pie",
+	data: {
+		labels: ["Victoires", "Défaites"],
+		datasets: [
+			{
+
+				backgroundColor: ["#D4E6B5", "#FFDF64"],
+				hoverOffset: 4,
+				data: [donneesUser.victoires, donneesUser.defaites],
+			},
+		],
+	},
+	options: options,
+});
+
+
+</script>
 {% endblock %}

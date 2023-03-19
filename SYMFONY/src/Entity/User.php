@@ -51,19 +51,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->nb_victoires_user;
     }
-    public function setNbVictoiresUser(int $nb_victoires_user): self
+    public function setnb_victoires_user(int $nb_victoires_user): self
     {
         $this->nb_victoires_user = $nb_victoires_user;
 
         return $this;
     }
 
-    public function getNbDefaitesUser(): ?int
+    public function getnb_defaites_user(): ?int
     {
         return $this->nb_defaites_user;
     }
 
-    public function setNbDefaitesUser(int $nb_defaites_user): self
+    public function setnb_defaites_user(int $nb_defaites_user): self
     {
         $this->nb_defaites_user = $nb_defaites_user;
 
