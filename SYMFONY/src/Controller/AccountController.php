@@ -10,14 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccountController extends AbstractController
 {
 
-    #[Route('/account', name: 'app_account')]
-    public function show(UserRepository $userRepository): Response
-    {
+    // #[Route('/account', name: 'app_account')]
+    // public function show(UserRepository $userRepository): Response
+    // {
         
-        return $this->render('account/index.html.twig');
-    }
+    //     return $this->render('account/index.html.twig');
+    // }
 
-    #[Route('/account', name: 'app_account')]
+    #[Route('/', name: 'app_account')]
     public function index(UserRepository $userRepository): Response
     {
         $user = $this->getUser();

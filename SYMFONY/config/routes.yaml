@@ -5,6 +5,7 @@ controllers:
     type: attribute
 
 
-mail_send_test:
-    path: /mail/send-test
-    controller: App\Controller\MailController::sendTestEmail
+
+send_email:
+    path: /send-email
+    controller: App\Controller\EmailController::sendEmail
