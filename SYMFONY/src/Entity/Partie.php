@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\PartieRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+
 
 #[ORM\Entity(repositoryClass: PartieRepository::class)]
+#[ApiResource()]
 class Partie
 {
     #[ORM\Id]
