@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\PartieRepository;
-use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
-
+use App\Repository\PartieRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PartieRepository::class)]
-#[ApiResource()]
+#[ApiResource]
 class Partie
 {
     #[ORM\Id]
@@ -16,127 +16,172 @@ class Partie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 20)]
-    private ?string $tour_joueur_partie = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $etatPartie = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $etat_partie = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $nbJetonsEnStock = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $acces_partie = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $nbMotsDecouverts = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $nb_tours_partie = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $motIndice = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $mots_devines_partie = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $nbMotsADecouvrir = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $grille_couleurs_partie = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $quiInput = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $j1_partie = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $j1 = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $j2_partie = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $j2 = null;
+
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private array $grilleJ1 = [];
+
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private array $grilleJ2 = [];
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $historique = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTourJoueurPartie(): ?string
-    {
-        return $this->tour_joueur_partie;
-    }
-
-    public function setTourJoueurPartie(string $tour_joueur_partie): self
-    {
-        $this->tour_joueur_partie = $tour_joueur_partie;
-
-        return $this;
-    }
-
     public function getEtatPartie(): ?string
     {
-        return $this->etat_partie;
+        return $this->etatPartie;
     }
 
-    public function setEtatPartie(string $etat_partie): self
+    public function setEtatPartie(?string $etatPartie): self
     {
-        $this->etat_partie = $etat_partie;
+        $this->etatPartie = $etatPartie;
 
         return $this;
     }
 
-    public function getAccesPartie(): ?string
+    public function getNbJetonsEnStock(): ?int
     {
-        return $this->acces_partie;
+        return $this->nbJetonsEnStock;
     }
 
-    public function setAccesPartie(string $acces_partie): self
+    public function setNbJetonsEnStock(?int $nbJetonsEnStock): self
     {
-        $this->acces_partie = $acces_partie;
+        $this->nbJetonsEnStock = $nbJetonsEnStock;
 
         return $this;
     }
 
-    public function getNbToursPartie(): ?string
+    public function getNbMotsDecouverts(): ?int
     {
-        return $this->nb_tours_partie;
+        return $this->nbMotsDecouverts;
     }
 
-    public function setNbToursPartie(string $nb_tours_partie): self
+    public function setNbMotsDecouverts(?int $nbMotsDecouverts): self
     {
-        $this->nb_tours_partie = $nb_tours_partie;
+        $this->nbMotsDecouverts = $nbMotsDecouverts;
 
         return $this;
     }
 
-    public function getMotsDevinesPartie(): ?string
+    public function getMotIndice(): ?string
     {
-        return $this->mots_devines_partie;
+        return $this->motIndice;
     }
 
-    public function setMotsDevinesPartie(string $mots_devines_partie): self
+    public function setMotIndice(?string $motIndice): self
     {
-        $this->mots_devines_partie = $mots_devines_partie;
+        $this->motIndice = $motIndice;
 
         return $this;
     }
 
-    public function getGrilleCouleursPartie(): ?string
+    public function getNbMotsADecouvrir(): ?int
     {
-        return $this->grille_couleurs_partie;
+        return $this->nbMotsADecouvrir;
     }
 
-    public function setGrilleCouleursPartie(string $grille_couleurs_partie): self
+    public function setNbMotsADecouvrir(?int $nbMotsADecouvrir): self
     {
-        $this->grille_couleurs_partie = $grille_couleurs_partie;
+        $this->nbMotsADecouvrir = $nbMotsADecouvrir;
 
         return $this;
     }
 
-    public function getJ1Partie(): ?string
+    public function getQuiInput(): ?int
     {
-        return $this->j1_partie;
+        return $this->quiInput;
     }
 
-    public function setJ1Partie(string $j1_partie): self
+    public function setQuiInput(?int $quiInput): self
     {
-        $this->j1_partie = $j1_partie;
+        $this->quiInput = $quiInput;
 
         return $this;
     }
 
-    public function getJ2Partie(): ?string
+    public function getJ1(): ?int
     {
-        return $this->j2_partie;
+        return $this->j1;
     }
 
-    public function setJ2Partie(string $j2_partie): self
+    public function setJ1(?int $j1): self
     {
-        $this->j2_partie = $j2_partie;
+        $this->j1 = $j1;
+
+        return $this;
+    }
+
+    public function getJ2(): ?int
+    {
+        return $this->j2;
+    }
+
+    public function setJ2(?int $j2): self
+    {
+        $this->j2 = $j2;
+
+        return $this;
+    }
+
+    public function getGrilleJ1(): array
+    {
+        return $this->grilleJ1;
+    }
+
+    public function setGrilleJ1(?array $grilleJ1): self
+    {
+        $this->grilleJ1 = $grilleJ1;
+
+        return $this;
+    }
+
+    public function getGrilleJ2(): array
+    {
+        return $this->grilleJ2;
+    }
+
+    public function setGrilleJ2(?array $grilleJ2): self
+    {
+        $this->grilleJ2 = $grilleJ2;
+
+        return $this;
+    }
+
+    public function getHistorique(): ?string
+    {
+        return $this->historique;
+    }
+
+    public function setHistorique(?string $historique): self
+    {
+        $this->historique = $historique;
 
         return $this;
     }
