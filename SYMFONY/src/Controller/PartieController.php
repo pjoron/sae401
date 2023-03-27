@@ -24,6 +24,12 @@ class PartieController extends AbstractController
         MotRepository $motRepository
     ): Response
     {
+
+        $user = $this->getUser();
+        if(!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        
         $partie = new Partie();
 
         /* FETCH MOTS --------------------------------------------- */
@@ -109,3 +115,4 @@ class PartieController extends AbstractController
 
     public function configureOptions(OptionsResolver $resolver): void {$resolver->setDefaults(['data_class' => Partie::class]);}
 }
+
