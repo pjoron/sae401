@@ -43,7 +43,7 @@ class PartieController extends AbstractController
             $cartes[$i]['etat'] = 'libre';
         }
 
-        /* GRILLE GENERATOR --------------------------------------------- */
+        /* GRILLE GENERATOR ------------------------------------------ */
         function grilleGen($nbnoires, $nbvertes) {
             /* Cases neutres */
             $grille = [];
