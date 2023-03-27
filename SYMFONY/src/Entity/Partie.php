@@ -49,6 +49,12 @@ class Partie
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $historique = null;
 
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private array $cartes = [];
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $nomPartie = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -182,6 +188,30 @@ class Partie
     public function setHistorique(?string $historique): self
     {
         $this->historique = $historique;
+
+        return $this;
+    }
+
+    public function getCartes(): array
+    {
+        return $this->cartes;
+    }
+
+    public function setCartes(?array $cartes): self
+    {
+        $this->cartes = $cartes;
+
+        return $this;
+    }
+
+    public function getNomPartie(): ?string
+    {
+        return $this->nomPartie;
+    }
+
+    public function setNomPartie(?string $nomPartie): self
+    {
+        $this->nomPartie = $nomPartie;
 
         return $this;
     }

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Partie;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,17 +13,13 @@ class PartieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('etatPartie')
-            ->add('nbJetonsEnStock')
-            ->add('nbMotsDecouverts')
-            ->add('motIndice')
-            ->add('nbMotsADecouvrir')
-            ->add('quiInput')
-            ->add('j1')
-            ->add('j2')
-            ->add('grilleJ1')
-            ->add('grilleJ2')
-            ->add('historique')
+            ->add('nomPartie')
+            ->add('submit', SubmitType::class, [
+                'label' => 'Créer la partie',
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
         ;
     }
 
