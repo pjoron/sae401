@@ -7,17 +7,23 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
+    <div id="login-container">
 
+        <section id="login-left">
+
+        </section>
+
+    <section id="login-right">
     {{ form_start(registrationForm) }}
     <h1>Créez votre compte</h1>
                 {{ form_row(registrationForm.email, {
-                    label: 'email :',
+                    label: 'Email :',
                     'attr': {
                         'placeholder': 'adresse@mail.fr'
                     }
                 }) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'password',
+            label: 'Mot de passe',
             'placeholder': 'SuperMotDePasse365$'
         }) }}
         {{ form_row(registrationForm.NaissanceUser, {
@@ -37,4 +43,9 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+    </section>
+    </div>
+
+
+
 {% endblock %}

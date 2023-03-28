@@ -1,18 +1,25 @@
 <nav>
-
+    <img src="{{ asset('build/images/logo.jpg') }}" alt="Logo CodeNames" />
     <ul>
         <li><a href="{{ path('app_account') }}" class="{{ app.request.get('_route') == 'app_account' ? 'link-active' }}">Accueil</a></li>
         <li><a href="{{ path('app_partie') }}" class="{{ app.request.get('_route') == 'app_partie' ? 'link-active' }}">Jeux</a></li>
-        {# <li><a href="{{ path('app_contact') }}" class="{{ app.request.get('_route') == 'app_contact' ? 'link-active' }}">Contact & Informations</a></li> #}
+
+
 
         {% if app.user %}
+                            <li><a href="{{ path('app_account') }}" class="{{ app.request.get('_route') == 'app_account' ? 'link-active' }}">Contact & Informations</a></li>
+                <li><a class="button" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                
+
             {# <li><a href="{{ path('admin') }}">Administration</a></li> #}
-            <div class="account">
+
+            {# <div class="account">
                     <a href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>
-                    <li><a class="button" href="{{ path('app_logout') }}">Se déconnecter</a></li>
-            </div>
+
+            </div> #}
         {% else %}
             <li><a class="button" href="{{ path('app_login') }}">S'identifier</a></li>
+
         {% endif %}
     </ul>
 </nav>

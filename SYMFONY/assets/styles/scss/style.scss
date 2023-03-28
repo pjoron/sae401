@@ -4,7 +4,16 @@ body {
   font-family: poppins;
 }
 
-
+.button {
+  background: #752992;
+    border: 2px solid #a251ce;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px 13px;
+    text-decoration: none;
+    transition: all .4s;
+}
 h1 {
     font-size: 3rem;
     color: red;
@@ -15,16 +24,169 @@ h1 {
 
   nav {
 
+    align-items: center;
+    background: #fff;
+    display: flex;
+    height: 90px;
+    justify-content: space-between;
+    padding: 0 30px;
+    width: 100vw;
+    z-index: 10;
+
+
+     img {
+      height: 60%;
+  }
+
+    ul {
+    align-items: center;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    list-style: none;
+
+    li a {
+      color: #000;
+      text-decoration: none;
+      transition: all .4s;
+    }
+
+    li a:hover {
+      color: #4081bc;
+    }
+
+    .account a {
+      align-items: center;
+      background-color: #4081bc;
+      border: 3px solid transparent;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      font-size: 22px;
+      height: 40px;
+      justify-content: center;
+      transition: all .4s;
+      width: 40px;
+    }
+  }
+  }
+
+  #login-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+
+    #login-left {
+
+
+      img {
+        height: 80%;
+        width: 100%;
+      }
+      background-size: cover;
+      height: 100%;
+      width: 50vw;
+    }
+
+    #login-right {
+
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      width: 50vw;
+
+      form {
+        display: flex;
+      flex-direction: column;
+      width: 70%;
+
+      h1 {
+        margin-bottom: 30px;
+      }
+
+      label {
+        color: #787878;
+      font-size: 18px;
+      margin-bottom: 5px;
+      }
+
+      input {
+        border: none;
+      border-bottom: 1px solid #787878;
+      color: #787878;
+      font-size: 16px;
+      height: 40px;
+      margin-bottom: 30px;
+      outline: none;
+      }
+
+      .checkbox {
+        align-items: flex-start;
+        display: flex;
+        height: 30px;
+        margin-bottom: 30px;
+        margin-top: -10px;
+      }
+
+      button {
+        align-self: center;
+      font-size: 16px;
+      width: 40%;
+      }
+
+      p {
+        align-self: center;
+        padding-top: 10px;
+      }
+
+      }
+
+    }
   }
 
 
 
 footer {
-  
-  display: flex;
+
+    display: flex;
     flex-direction: row;
     margin: 5vh 0;
     width: 100vw;
 
+    #content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      justify-content: center;
+      width: 100%;
+
+      img {
+        width: 250px;
+      }
+
+    section ul {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      list-style: none;
+
+      li a {
+        color: #000;
+        text-decoration: none;
+        transition: all .4s;
+      }
+
+      li a:hover {
+        color: #4081bc;
+      }
+    }
+
+    
+    }
 
 }
