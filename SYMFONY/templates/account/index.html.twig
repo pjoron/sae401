@@ -11,12 +11,33 @@
 </style>
 
     <h1>ACCOUNT</h1>
-                        <canvas id="rate"> </canvas >
-                        {# <tr>
+
+	<section id="liste_parties">
+		
+	</section>
+						<div class="canva">
+                        	<canvas id="rate"> </canvas >
+						</div>
+
+                        <tr>
                             <td>{{ user.id }}</td>
                             <td>{{ user.nb_victoires_user }}</td>
 							<td>{{ user.nb_defaites_user }}</td>
-                        </tr> #}
+							<br><br>
+
+
+
+							{% for partie in parties %}
+
+								<p> test </p>
+								<td>{{ partie.id }}</td>
+								<td>{{ partie.NbJetonsEnStock }}</td>
+
+							{% endfor %}
+					
+
+							
+                        </tr>
 
 
 

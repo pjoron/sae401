@@ -38,6 +38,7 @@ class PartieRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    
 
 //    /**
 //     * @return Partie[] Returns an array of Partie objects
