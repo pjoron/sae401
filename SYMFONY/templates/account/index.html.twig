@@ -12,28 +12,72 @@
 
     <h1>ACCOUNT</h1>
 
-	<section id="liste_parties">
 		
-	</section>
+
+						<div class="rate">
+					{% if user.nb_victoires_user == 0 and user.nb_defaites_user == 0 and parties is empty %}
+						<p>Bienvenue sur Codenames !</p>
+
+
+					{% elseif user.nb_victoires_user == 0 and user.nb_defaites_user == 0 %}
+						<p>Vous n'avez toujours pas terminer de partie, veuillez reprendre une partie ou alors <a href="{{ path('app_partie') }}" class="{{ app.request.get('_route') == 'app_partie' ? 'link-active' }}">créer une nouvelle partie</a></p>
+
+					{% else %}
+
 						<div class="canva">
-                        	<canvas id="rate"> </canvas >
+							<canvas id="rate"></canvas>
 						</div>
 
-                        <tr>
-                            <td>{{ user.id }}</td>
-                            <td>{{ user.nb_victoires_user }}</td>
-							<td>{{ user.nb_defaites_user }}</td>
-							<br><br>
+						<table>
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Victoires</th>
+									<th>Défaites</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>{{ user.id }}</td>
+									<td>{{ user.nb_victoires_user }}</td>
+									<td>{{ user.nb_defaites_user }}</td>
+								</tr>
+							</tbody>
+						</table>
+					{% endif %}
+				</div>
+
+						<section id="liste_parties">
+							{% if parties is empty %}
+								<p>Aucune partie trouvée. Si vous souhaitez créer une partie cliquez <a href="{{ path('app_partie') }}" class="{{ app.request.get('_route') == 'app_partie' ? 'link-active' }}">ICI</a></p>
+							{% else %}
+								<table>
+									<thead>
+										<tr>
+											<th>Nom de la partie</th> 
+											<th>ID</th>
+											<th>Jetons en stock</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for partie in parties %}
+											<tr>
+												<td>{{ partie.NomPartie }}</td>
+												<td>{{ partie.id }}</td>
+												<td>{{ partie.NbJetonsEnStock }}</td>
 
 
 
-							{% for partie in parties %}
+												<td><a href="/jeu/jeu/{{ partie.id }}/{{ partie.quiInput }}">Jouer</a></td>
 
-								<p> test </p>
-								<td>{{ partie.id }}</td>
-								<td>{{ partie.NbJetonsEnStock }}</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							{% endif %}
+						</section>
 
-							{% endfor %}
+
 					
 
 							
