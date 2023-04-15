@@ -78,13 +78,13 @@ class PartieController extends AbstractController
         $form = $this->createForm(PartieType::class, $partie);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $partie = $partie->setEtatPartie('en attente');
+            $partie = $partie->setEtatPartie('En attente');
             $partie = $partie->setNbJetonsEnStock(8);
             $partie = $partie->setNbMotsDecouverts(0);
-            $partie = $partie->setNbMotsDecouverts(0);
+            $partie = $partie->setMotIndice(null);
             $partie = $partie->setNbMotsADecouvrir(null);
-            $partie = $partie->setQuiInput($this -> getUser() -> getId());
-            $partie = $partie->setJ1($this -> getUser() -> getId());
+            $partie = $partie->setQuiInput(1);
+            $partie = $partie->setJ1(null);
             $partie = $partie->setJ2(null);
             $partie = $partie->setGrilleJ1($grillej1);
             $partie = $partie->setGrilleJ2($grillej2);

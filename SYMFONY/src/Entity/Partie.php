@@ -46,8 +46,8 @@ class Partie
     #[ORM\Column(type: Types::ARRAY, nullable: true)]
     private array $grilleJ2 = [];
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $historique = null;
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private ?array $historique = null;
 
     #[ORM\Column(type: Types::ARRAY, nullable: true)]
     private array $cartes = [];
@@ -180,12 +180,12 @@ class Partie
         return $this;
     }
 
-    public function getHistorique(): ?string
+    public function getHistorique(): ?array
     {
         return $this->historique;
     }
 
-    public function setHistorique(?string $historique): self
+    public function setHistorique(?array $historique): self
     {
         $this->historique = $historique;
 
