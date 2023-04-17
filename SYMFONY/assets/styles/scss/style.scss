@@ -156,6 +156,40 @@ h1 {
   }
 
 
+  .rate {
+
+
+    p {
+      text-align: center;
+    }
+
+  }
+
+  #liste_parties{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+
+    table {
+      margin: 50px;
+
+      
+      tr {
+        text-align: center;
+      }
+
+      th {
+        width: 18vw;
+        text-align: center;
+
+      }
+    }
+
+  }
+
+
 
 footer {
 

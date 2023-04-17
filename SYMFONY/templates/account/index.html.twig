@@ -10,7 +10,7 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-    <h1>ACCOUNT</h1>
+    <h1>Votre compte :</h1>
 
 		
 
@@ -28,22 +28,7 @@
 							<canvas id="rate"></canvas>
 						</div>
 
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Victoires</th>
-									<th>Défaites</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>{{ user.id }}</td>
-									<td>{{ user.nb_victoires_user }}</td>
-									<td>{{ user.nb_defaites_user }}</td>
-								</tr>
-							</tbody>
-						</table>
+
 					{% endif %}
 				</div>
 
@@ -55,15 +40,14 @@
 									<thead>
 										<tr>
 											<th>Nom de la partie</th> 
-											<th>ID</th>
 											<th>Jetons en stock</th>
+											<th>Lien :</th>
 										</tr>
 									</thead>
 									<tbody>
 										{% for partie in parties %}
 											<tr>
 												<td>{{ partie.NomPartie }}</td>
-												<td>{{ partie.id }}</td>
 												<td>{{ partie.NbJetonsEnStock }}</td>
 
 
